@@ -93,62 +93,70 @@ function App() {
   }
 
   return (
-    <main className="page-shell">
-      <section className="phone-frame" aria-label="Digital Reflective Practice Tool demo">
-        <div className="app-screen">
-          <DemoMenu navigate={navigate} />
+    <main className="site-shell" aria-label="Digital Reflective Practice Tool demo">
+      <SiteHeader navigate={navigate} />
 
-          {screen === SCREENS.LOGIN && <LoginScreen navigate={navigate} />}
-          {screen === SCREENS.NGRN_DASHBOARD && <NgrnDashboard navigate={navigate} />}
-          {screen === SCREENS.FIND_EDUCATOR && <FindEducatorScreen navigate={navigate} />}
-          {screen === SCREENS.REFLECTION_STAGE_1 && (
-            <ReflectionStageOne
-              navigate={navigate}
-              voiceMode={voiceMode}
-              setVoiceMode={setVoiceMode}
-            />
-          )}
-          {screen === SCREENS.REFLECTION_STAGE_2 && (
-            <ReflectionStageTwo
-              navigate={navigate}
-              voiceMode={voiceMode}
-              setVoiceMode={setVoiceMode}
-            />
-          )}
-          {screen === SCREENS.REFLECTION_STAGE_3 && <ReflectionStageThree navigate={navigate} />}
-          {screen === SCREENS.REFLECTION_SENT && <ReflectionSentScreen navigate={navigate} />}
-          {screen === SCREENS.NGRN_THREAD && (
-            <NgrnThreadScreen
-              navigate={navigate}
-              voiceMode={voiceMode}
-              setVoiceMode={setVoiceMode}
-              onSend={() => showToast('Demo reply sent.')}
-            />
-          )}
-          {screen === SCREENS.CNE_DASHBOARD && <CneDashboard navigate={navigate} />}
-          {screen === SCREENS.CNE_REVIEW && (
-            <CneReviewScreen
-              navigate={navigate}
-              voiceMode={voiceMode}
-              setVoiceMode={setVoiceMode}
-              onSend={() => showToast('Demo response sent.')}
-            />
-          )}
+      <div className="site-content">
+        {screen === SCREENS.LOGIN && <LoginScreen navigate={navigate} />}
+        {screen === SCREENS.NGRN_DASHBOARD && <NgrnDashboard navigate={navigate} />}
+        {screen === SCREENS.FIND_EDUCATOR && <FindEducatorScreen navigate={navigate} />}
+        {screen === SCREENS.REFLECTION_STAGE_1 && (
+          <ReflectionStageOne
+            navigate={navigate}
+            voiceMode={voiceMode}
+            setVoiceMode={setVoiceMode}
+          />
+        )}
+        {screen === SCREENS.REFLECTION_STAGE_2 && (
+          <ReflectionStageTwo
+            navigate={navigate}
+            voiceMode={voiceMode}
+            setVoiceMode={setVoiceMode}
+          />
+        )}
+        {screen === SCREENS.REFLECTION_STAGE_3 && <ReflectionStageThree navigate={navigate} />}
+        {screen === SCREENS.REFLECTION_SENT && <ReflectionSentScreen navigate={navigate} />}
+        {screen === SCREENS.NGRN_THREAD && (
+          <NgrnThreadScreen
+            navigate={navigate}
+            voiceMode={voiceMode}
+            setVoiceMode={setVoiceMode}
+            onSend={() => showToast('Demo reply sent.')}
+          />
+        )}
+        {screen === SCREENS.CNE_DASHBOARD && <CneDashboard navigate={navigate} />}
+        {screen === SCREENS.CNE_REVIEW && (
+          <CneReviewScreen
+            navigate={navigate}
+            voiceMode={voiceMode}
+            setVoiceMode={setVoiceMode}
+            onSend={() => showToast('Demo response sent.')}
+          />
+        )}
 
-          {toast && <div className="toast" role="status">{toast}</div>}
-        </div>
-      </section>
+        {toast && <div className="toast" role="status">{toast}</div>}
+      </div>
     </main>
   );
 }
 
-function DemoMenu({ navigate }) {
+function SiteHeader({ navigate }) {
   return (
-    <nav className="demo-menu" aria-label="Demo navigation shortcuts">
-      <button type="button" onClick={() => navigate(SCREENS.LOGIN)}>Login</button>
-      <button type="button" onClick={() => navigate(SCREENS.NGRN_DASHBOARD)}>NGRN</button>
-      <button type="button" onClick={() => navigate(SCREENS.CNE_DASHBOARD)}>CNE</button>
-    </nav>
+    <header className="site-header">
+      <button className="brand-button" type="button" onClick={() => navigate(SCREENS.LOGIN)} aria-label="Back to login">
+        <span className="brand-mark">DR</span>
+        <span>
+          <strong>Digital Reflective Practice Tool</strong>
+          <small>Clickable university prototype</small>
+        </span>
+      </button>
+
+      <nav className="demo-menu" aria-label="Demo navigation shortcuts">
+        <button type="button" onClick={() => navigate(SCREENS.LOGIN)}>Login</button>
+        <button type="button" onClick={() => navigate(SCREENS.NGRN_DASHBOARD)}>NGRN flow</button>
+        <button type="button" onClick={() => navigate(SCREENS.CNE_DASHBOARD)}>CNE flow</button>
+      </nav>
+    </header>
   );
 }
 

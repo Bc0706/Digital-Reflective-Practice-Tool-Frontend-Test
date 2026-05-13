@@ -2,7 +2,7 @@
 
 This is a static React + Vite clickable prototype for a Digital Reflective Practice Tool wireframe.
 
-It is designed for presentation walkthroughs on a phone-sized screen. There is no backend, authentication, database, API call, or saved data. Navigation is handled with simple React state so it works cleanly on GitHub Pages without browser routing issues.
+It is designed as a traditional responsive website: it uses a full-width desktop layout with centred content, cards, grids, and a sticky top navigation bar. On mobile, the same screens collapse into a single-column phone-friendly layout. There is no backend, authentication, database, API call, or saved data. Navigation is handled with simple React state so it works cleanly on GitHub Pages without browser routing issues.
 
 ## Included screens
 
@@ -25,6 +25,7 @@ digital-reflective-practice-demo/
 ├── index.html
 ├── vite.config.js
 ├── README.md
+├── .gitignore
 └── src/
     ├── main.jsx
     ├── App.jsx
@@ -141,4 +142,5 @@ Login → Continue as Clinical Nurse Educator → Clinical Educator Dashboard �
 - Styling is in `src/App.css`.
 - No data is saved after sending a reply or response.
 - Fake voice mode only changes the UI and shows a waveform panel.
-- The demo menu at the top lets the presenter quickly jump between Login, NGRN, and CNE screens.
+- The sticky top navigation lets the presenter quickly jump between Login, NGRN, and CNE screens.
+- The layout is desktop-first in presentation style, but responsive down to phone screens.
